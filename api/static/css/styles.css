@@ -2,3 +2,42 @@
     width: 100%;
     min-height: 400px;
 }
+
+/* Estilos CSS para el contenedor */
+.rectangulo {
+    display: flex; /* Usar flexbox para diseño flexible */
+    flex-direction: column; /* Apilar los elementos verticalmente */
+    justify-content: center; /* Centrar verticalmente los elementos */
+    align-items: center; /* Centrar horizontalmente los elementos */
+    width: 40%; /* Ancho del rectángulo */
+    height: 200px; /* Altura del rectángulo */
+    margin: 0 auto; /* Centrar el rectángulo horizontalmente */
+    background-color: #f0f0f0; /* Color de fondo del rectángulo */
+    padding: 20px; /* Espaciado interno del rectángulo */
+    border: 3px solid #ccc; /* Borde del rectángulo */
+    box-sizing: border-box; /* Incluir el borde en el ancho y alto del rectángulo */
+}
+
+/* Estilos CSS para el título */
+.titulo {
+    text-align: center; /* Centrar el texto */
+    margin-bottom: 20px; /* Espaciado inferior del título */
+}
+
+/* Estilos CSS para las columnas */
+.columnas {
+    display: flex; /* Usar flexbox para diseño flexible */
+    justify-content: space-between; /* Distribuir las columnas uniformemente */
+    width: 100%; /* Ancho del contenedor de las columnas */
+}
+
+/* Estilos CSS para las columnas */
+.columna {
+    flex: 1; /* Hacer que las columnas se expandan para ocupar todo el espacio disponible */
+    padding: 10px; /* Espaciado interno de las columnas */
+}
+
+/* Estilos CSS para las filas */
+.fila {
+    margin-bottom: 10px; /* Espaciado entre filas */
+}

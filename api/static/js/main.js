@@ -10,7 +10,7 @@ const getOptionChart=async()=>{
 const initChart=async()=> {
     const myChart=echarts.init(document.getElementById('chart'));
     myChart.setOption(await getOptionChart());
-    myChart.rezize();
+    myChart.resize();
 };
 
 window.addEventListener("load", async() => {
