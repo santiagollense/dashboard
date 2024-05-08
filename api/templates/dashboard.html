@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Dashboard</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    </head>
+    <body>
+
+        <!-- dashboard.html -->
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1>Producción Actual: {{ data.produccion_actual }}</h1>
+                    <p>Eficiencia: {{ data.eficiencia }}</p>
+                    <p>Cantidad de Defectos: {{ data.cantidad_defectos }}</p>
+                    <p>Calidad: {{ data.calidad }}</p>
+                    <p>Minutos de Indisponibilidad: {{ data.minutos_indisponibilidad }}</p>
+                    <p>Disponibilidad: {{ data.disponibilidad }}</p>
+                    <p>OEE: {{ data.oee }}</p>
+                </div>
+            </div>
+        </div>
+        
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+        <script src= "{% static 'js/main.js' %}"></script>
+
+        <script>
+            function actualizarDatos() {
+                fetch('/api/actualizar_datos/')  // Ruta a la vista que actualizará los datos
+                .then(response => response.json())
+                .then(data => {
+                    // Actualizar los elementos HTML con los nuevos datos
+                    document.getElementById('produccion-actual').innerText = "Producción Actual: " + data.produccion_actual;
+                    document.getElementById('eficiencia').innerText = "Eficiencia: " + data.eficiencia;
+                    document.getElementById('cantidad-defectos').innerText = "Cantidad de Defectos: " + data.cantidad_defectos;
+                    document.getElementById('calidad').innerText = "Calidad: " + data.calidad;
+                    document.getElementById('minutos-indisponibilidad').innerText = "Minutos de Indisponibilidad: " + data.minutos_indisponibilidad;
+                    document.getElementById('disponibilidad').innerText = "Disponibilidad: " + data.disponibilidad;
+                    document.getElementById('oee').innerText = "OEE: " + data.oee;
+                });
+            }
+
+            setInterval(actualizarDatos, 30000);  // Llamar a actualizarDatos cada 30 segundos
+        </script>
+    </body>
+</html>
